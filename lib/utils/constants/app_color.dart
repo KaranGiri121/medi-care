@@ -3,7 +3,7 @@ class AppColor{
   static Color  accentColor = const Color(0xFF0BAB7C);
   static Color  accentBackground= const Color(0xffC7F4C2);
 
-  static Color primary = const Color(0xfffbfaf3);
+  static const Color primary = Color(0xfffbfaf3);
 
   static Color darkColor = const Color(0xFF1d212d);
 

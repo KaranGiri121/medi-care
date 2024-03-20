@@ -17,7 +17,7 @@ class NavigationMenu extends StatelessWidget {
         ()=> BottomNavigationBar(
           elevation: 1,
           backgroundColor: Colors.deepPurple.shade200,
-          selectedIconTheme: IconThemeData(color: AppColor.primary),
+          selectedIconTheme: const IconThemeData(color: AppColor.primary),
           selectedItemColor: AppColor.primary,
           unselectedIconTheme: IconThemeData(color: AppColor.darkColor),
           currentIndex: controller.index.value,

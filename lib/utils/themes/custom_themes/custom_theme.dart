@@ -62,7 +62,7 @@ class CustomTheme {
         backgroundColor: AppColor.accentColor,
         disabledBackgroundColor: const Color(0xff83848b),
         disabledForegroundColor: AppColor.primary.withOpacity(0.8),
-        side: BorderSide(color: AppColor.primary),
+        side: const BorderSide(color: AppColor.primary),
         padding: const EdgeInsets.symmetric(vertical: AppSize.buttonHeight),
         textStyle: GoogleFonts.beVietnamPro(
             fontSize: 16,

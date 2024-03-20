@@ -18,6 +18,11 @@ class ConstantStrings {
   static const String forgetPassword =
       "Oops! Looks like you're having trouble remembering your password. Don't worry, it happens to the best of us.";
 
+  static const String verifyMessage ="Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.";
+  static const String verifyScreenImage ="assets/images/animation/sammy-line-man-receives-a-mail.png";
+  static const String loaderAnimation ="assets/images/animation/141594-animation-of-docer.json";
+
+
   static List<String> listOfMedicine = [
     "Avastin 100mg Injection",
     "Actorise 40 Injection",

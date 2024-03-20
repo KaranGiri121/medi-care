@@ -36,7 +36,7 @@ class PersonalizationScreen extends StatelessWidget {
                     action: [
                       IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Iconsax.logout,
                             color: AppColor.primary,
                           ))
@@ -75,7 +75,7 @@ class PersonalizationScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Icon(
+                        const Icon(
                           Iconsax.edit,
                           color: AppColor.primary,
                         ),

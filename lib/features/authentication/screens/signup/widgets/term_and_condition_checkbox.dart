@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medi_care/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:medi_care/utils/constants/app_color.dart';
 import 'package:medi_care/utils/constants/sizes.dart';
 
@@ -9,6 +11,7 @@ class TermAndCondition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = SignupController.instance;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
@@ -16,7 +19,15 @@ class TermAndCondition extends StatelessWidget {
         SizedBox(
           width: 24,
           height: 24,
-          child: Checkbox(value: true, onChanged: (value) {}),),
+          child: Obx(
+            () => Checkbox(
+              value: controller.privacyPolicy.value,
+              onChanged: (value) {
+                controller.privacyPolicy.value = !controller.privacyPolicy.value;
+              },
+            ),
+          ),
+        ),
         const SizedBox(width: AppSize.spaceItems),
         Expanded(
           child: RichText(
@@ -24,8 +35,7 @@ class TermAndCondition extends StatelessWidget {
               children: [
                 TextSpan(
                     text: "Sign me up! I'm on board with the",
-                    style:
-                    Theme.of(context).textTheme.bodyMedium),
+                    style: Theme.of(context).textTheme.bodyMedium),
                 TextSpan(
                     text: " Privacy Policy ",
                     style: Theme.of(context).textTheme.bodyLarge),
@@ -35,13 +45,9 @@ class TermAndCondition extends StatelessWidget {
                 ),
                 TextSpan(
                     text: "Terms of Use",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .apply(
+                    style: Theme.of(context).textTheme.bodyLarge!.apply(
                         color: AppColor.accentColor,
-                        decoration:
-                        TextDecoration.underline)),
+                        decoration: TextDecoration.underline)),
               ],
             ),
           ),

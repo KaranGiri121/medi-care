@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:medi_care/features/authentication/screens/login/login.dart';
 
 class OnBoardingController extends GetxController{
@@ -28,6 +29,8 @@ class OnBoardingController extends GetxController{
   }
   void nextPage() {
     if(currentPage.value==3){
+      final storage = GetStorage();
+      storage.write("isFirstTime", false);
       Get.offAll(()=> const Login());
     }
     else{
