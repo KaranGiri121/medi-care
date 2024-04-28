@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CircularIcon extends StatelessWidget {
-  const CircularIcon({super.key, required this.icon, this.color, this.backgroundColor});
+  const CircularIcon({super.key, required this.icon, this.color, this.backgroundColor, this.onPressed});
 
   final IconData icon;
   final Color? color;
   final Color? backgroundColor;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CircularIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(
-        onPressed: () {},
+        onPressed: onPressed,
         icon: Icon(
           icon,
           color: color,

@@ -17,8 +17,4 @@ class AppTheme{
     outlinedButtonTheme: CustomTheme.outlineTheme,
     inputDecorationTheme: CustomTheme.inputTheme,
   );
-
-
-
-
 }

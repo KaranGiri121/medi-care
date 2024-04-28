@@ -13,7 +13,7 @@ class PromoBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HomeController());
+    final controller = HomeController.instance;
     return Column(
       children: [
         CarouselSlider(

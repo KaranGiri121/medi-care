@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:medi_care/common/widgets/app_bar/custom_appbar.dart';
 import 'package:medi_care/common/widgets/text/section_heading.dart';
+import 'package:medi_care/data/repositories/authentication/authentication_repository.dart';
+import 'package:medi_care/features/medi_store/screens/cart/cart.dart';
 import 'package:medi_care/features/personalization/screens/address/address.dart';
 import 'package:medi_care/features/personalization/screens/order/order.dart';
 import 'package:medi_care/features/personalization/screens/profile/profile.dart';
@@ -28,14 +30,13 @@ class PersonalizationScreen extends StatelessWidget {
                   CustomAppBar(
                     dark: true,
                     title: Text("Account",
-                        style: Theme
-                            .of(context)
+                        style: Theme.of(context)
                             .textTheme
                             .headlineMedium
                             ?.copyWith(color: AppColor.primary)),
                     action: [
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () => AuthenticationRepo.instance.logout(),
                           icon: const Icon(
                             Iconsax.logout,
                             color: AppColor.primary,
@@ -59,16 +60,14 @@ class PersonalizationScreen extends StatelessWidget {
                           children: [
                             Text(
                               "Karan Giri",
-                              style: Theme
-                                  .of(context)
+                              style: Theme.of(context)
                                   .textTheme
                                   .titleLarge!
                                   .copyWith(color: AppColor.primary),
                             ),
                             Text(
                               "Karangiri121@gmail.com",
-                              style: Theme
-                                  .of(context)
+                              style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
                                   .copyWith(color: AppColor.primary),
@@ -100,17 +99,24 @@ class PersonalizationScreen extends StatelessWidget {
                     leading: const Icon(Iconsax.box),
                     title: Text(
                       "My Order",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       "Check Your Order Status",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ),
+                  const Divider(),
+                  ListTile(
+                    onTap: () => Get.to(() => const CartScreen()),
+                    leading: const Icon(Iconsax.shopping_cart),
+                    title: Text(
+                      "My Cart",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    subtitle: Text(
+                      "Check Items In Cart",
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                   const Divider(),
@@ -119,36 +125,24 @@ class PersonalizationScreen extends StatelessWidget {
                     leading: const Icon(Iconsax.menu),
                     title: Text(
                       "My Wishlist",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       "Checkout Your Wishlist",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                   const Divider(),
                   ListTile(
-                    onTap: ()=> Get.to(()=> const AddressScreen()),
+                    onTap: () => Get.to(() => const AddressScreen()),
                     leading: const Icon(Iconsax.add),
                     title: Text(
                       "Address",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       "Set Delivery Address",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                   const Divider(),
@@ -156,17 +150,11 @@ class PersonalizationScreen extends StatelessWidget {
                     leading: const Icon(Iconsax.receipt),
                     title: Text(
                       "Your LabTest",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       "Checkout Your Lab Report",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                   const Divider(),
@@ -174,17 +162,11 @@ class PersonalizationScreen extends StatelessWidget {
                     leading: const Icon(Iconsax.card),
                     title: Text(
                       "Payment Method",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       "Select Your Payment Method",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                   const Divider(),
@@ -192,17 +174,11 @@ class PersonalizationScreen extends StatelessWidget {
                     leading: const Icon(Iconsax.profile_add),
                     title: Text(
                       "Invite Friends",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .titleMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       "Invite your friend",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                 ],
@@ -214,7 +190,7 @@ class PersonalizationScreen extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => AuthenticationRepo.instance.logout(),
                   child: const Text("Logout"),
                 ),
               ),

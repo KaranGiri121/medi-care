@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:medi_care/common/widgets/container/rounded_container.dart';
+import 'package:medi_care/features/medi_store/controllers/home_controller.dart';
+import 'package:medi_care/features/medi_store/model/product_model.dart';
 import 'package:medi_care/utils/constants/app_color.dart';
 class PriceAddCartCard extends StatelessWidget {
   const PriceAddCartCard({
-    super.key,
+    super.key, required this.product,
   });
 
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return RoundedContainer(
@@ -15,17 +18,17 @@ class PriceAddCartCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Column(
+           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("MRP "),
-                  Text("\u20b945"),
+                  const Text("MRP "),
+                  Text("\u20b9${product.price.toString()}"),
                 ],
               ),
-              Text("Inclusive of all taxes")
+              const Text("Inclusive of all taxes")
             ],
           ),
           ElevatedButton(
@@ -34,7 +37,9 @@ class PriceAddCartCard extends StatelessWidget {
                   side: BorderSide.none,
                   padding:
                   const EdgeInsets.symmetric(horizontal: 10)),
-              onPressed: () {},
+              onPressed: () {
+                HomeController.instance.addProduct(product);
+              },
               child: const Text("Add to Cart"))
         ],
       ),);
